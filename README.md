@@ -80,3 +80,7 @@ make clean
 | [`rtl/`](rtl/README.md) | Spec ALU: port, opcode, flag, ghi chú thiết kế |
 | [`tb/`](tb/README.md) | Testbench self-checking đơn giản |
 | [`tb/uvm/`](tb/uvm/README.md) | Cấu trúc UVM, chi tiết coverage, mutation test, các lỗi đã gặp |
+
+## References
+https://chipverify.com/
+https://www.accellera.org/downloads/standards/uvm
