@@ -144,14 +144,4 @@ bug này lộ ra. Testbench hoạt động đúng.
 
 ---
 
-## Các lỗi đã gặp
 
-| Vấn đề | Nguyên nhân | Cách sửa |
-|--------|-------------|----------|
-| `xelab` báo lỗi: "has a timescale but at least one module doesn't" | `alu_if.sv` có `` `timescale ``, còn các file RTL thì không | Thêm `--timescale 1ns/1ps` cho `xelab` trong Makefile |
-| xsim crash, nhưng chỉ khi in ra lỗi | Phần in tên op dùng `.name()` của enum, làm xsim 2024.2 crash. Đoạn code này chưa từng chạy cho đến khi xuất hiện lỗi đầu tiên. | Thay bằng một `case` đơn giản trả về chuỗi |
-| Warning: `$value$plusargs is used as system task` | xsim không xử lý tốt `void'(...)` bao quanh hàm này | Dùng giá trị trả về của hàm trong một câu `if` |
-| Lệnh kiểm tra trong shell báo lỗi: không tìm thấy `uvm_.log` | `$TEST` chỉ tồn tại bên trong Makefile | Đặt `TEST=...` trong shell trước |
-
-Bài học: đoạn code in lỗi của testbench cũng là code. Nó không được test cho
-đến khi có lỗi xảy ra, và chính mutation test đã làm lộ ra vấn đề này.
